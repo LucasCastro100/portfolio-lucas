@@ -107,6 +107,7 @@ O projeto segue [SemVer](https://semver.org/lang/pt-BR/). As tags iniciais são:
 | Tag | Significado |
 | --- | --- |
 | `v0.0.0` | esqueleto inicial (Create Next App) |
+| `v0.0.1` | conteúdo e experiência revisados (versão atual) |
 | `v0.1.0` | portfólio funcional (conteúdo, animações, CI) |
 | `v1.0.0` | redesign visual final (tema azul + Docker + releases) |
 
