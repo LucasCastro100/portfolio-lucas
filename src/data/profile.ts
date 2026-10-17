@@ -55,7 +55,7 @@ export const experiences: Experience[] = [
     description:
       "Desenvolvimento de sistemas, sites e landing pages para clientes, atuando de ponta a ponta.",
     highlights: [
-      "Arquitetura do SaaS IdeasDev: 20 sistemas de gestão isolados, 75 tabelas e ~36 mil linhas num único codebase Laravel/Livewire.",
+      "Arquitetura do SaaS IdeasDev: 20 sistemas de gestão isolados num único codebase Laravel/Livewire, unificando todos os sistemas PHP que mantinha.",
       "DataFi — app de gestão de marketing, com dashboards de métricas de campanhas (Meta e Google), relatórios por cliente e integração com WhatsApp.",
       "Clubset — plataforma para videomakers com permutas e troca de serviços, créditos e assinaturas via Stripe (2FA e Passkeys).",
       "Neuro Comunicação — plataforma de cursos EAD focada em PNL, com certificados em PDF e checkout via Stripe.",
