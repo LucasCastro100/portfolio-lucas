@@ -37,7 +37,7 @@ export function Projects() {
       <SectionHeading
         eyebrow="Projetos"
         title="Projetos em Destaque"
-        description="Uma seleção das principais soluções desenvolvidas e as tecnologias aplicadas. Alguns repositórios são privados devido a acordos de confidencialidade (NDA) ou uso corporativo."
+        description="Uma seleção das principais soluções desenvolvidas e as tecnologias aplicadas. Alguns repositórios são mantidos privados por acordos de confidencialidade (NDA), questões contratuais/proprietárias ou uso corporativo."
       />
 
       <Reveal>
