@@ -8,7 +8,7 @@ import {
   WhatsappIcon,
 } from "./icons";
 import { Magnetic } from "./ui/magnetic";
-import { PhotoFrame } from "./ui/photo-frame";
+import { ProfileCard3D } from "./ui/profile-card-3d";
 import { Reveal } from "./ui/reveal";
 import { BlurFade } from "./ui/blur-fade";
 import { NumberTicker } from "./ui/number-ticker";
@@ -103,7 +103,7 @@ export function Hero() {
           </div>
 
           <BlurFade delay={0.25}>
-            <PhotoFrame />
+            <ProfileCard3D />
           </BlurFade>
         </div>
       </div>

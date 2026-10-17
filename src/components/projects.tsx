@@ -38,7 +38,7 @@ export function Projects() {
       <SectionHeading
         eyebrow="Projetos"
         title="O que eu construí"
-        description="Seleção dos principais projetos, com stack e métricas reais extraídas do código. Alguns repositórios são privados."
+        description="Seleção dos principais projetos com a stack de cada um. Alguns repositórios são privados."
       />
 
       <Reveal>
@@ -202,19 +202,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </div>
 
           <p className="mt-4 text-sm leading-relaxed text-muted">{project.description}</p>
-
-          {project.metrics?.length ? (
-            <dl className="mt-5 grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-line bg-line">
-              {project.metrics.slice(0, 6).map((metric) => (
-                <div key={metric.label} className="bg-background/60 px-3 py-2.5 text-center">
-                  <dt className="text-sm font-bold text-foreground">{metric.value}</dt>
-                  <dd className="mt-0.5 text-[10px] leading-tight text-muted">
-                    {metric.label}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          ) : null}
 
           {project.systems?.length ? (
             <ExpandableSystems systems={project.systems} />

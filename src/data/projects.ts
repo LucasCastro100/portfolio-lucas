@@ -20,7 +20,6 @@ export type Project = {
   private?: boolean;
   highlight?: boolean;
   period?: string;
-  metrics?: { value: string; label: string }[];
   /** Módulos/sistemas internos de uma plataforma multi-sistema. */
   systems?: { icon: string; name: string }[];
 };
@@ -45,14 +44,6 @@ export const projects: Project[] = [
     links: [{ label: "GitHub", url: "https://github.com/LucasCastro100/ideias_dev" }],
     highlight: true,
     period: "jul/2025 – atual",
-    metrics: [
-      { value: "20", label: "sistemas" },
-      { value: "75", label: "tabelas" },
-      { value: "90", label: "rotas" },
-      { value: "87", label: "componentes Livewire" },
-      { value: "66", label: "models" },
-      { value: "~36k", label: "linhas" },
-    ],
     systems: [
       { icon: "🎯", name: "TBR — Eventos" },
       { icon: "💰", name: "Financeiro" },
@@ -96,14 +87,6 @@ export const projects: Project[] = [
     private: true,
     highlight: true,
     period: "em andamento",
-    metrics: [
-      { value: "68", label: "rotas" },
-      { value: "35", label: "tabelas" },
-      { value: "48", label: "migrations" },
-      { value: "38", label: "páginas React" },
-      { value: "78", label: "componentes" },
-      { value: "~74,7k", label: "linhas" },
-    ],
   },
   {
     slug: "control-school",
@@ -136,10 +119,6 @@ export const projects: Project[] = [
     ],
     highlight: true,
     period: "jun/2026 – atual",
-    metrics: [
-      { value: "119", label: "arquivos TS/TSX" },
-      { value: "~20,6k", label: "linhas" },
-    ],
   },
   {
     slug: "odontopro",
@@ -160,11 +139,6 @@ export const projects: Project[] = [
     links: [{ label: "GitHub", url: "https://github.com/LucasCastro100/odontopro" }],
     highlight: true,
     period: "set/2026 – atual",
-    metrics: [
-      { value: "9", label: "models Prisma" },
-      { value: "7", label: "páginas" },
-      { value: "~20,5k", label: "linhas" },
-    ],
   },
   {
     slug: "neurocomunicacao",
@@ -185,13 +159,6 @@ export const projects: Project[] = [
     ],
     private: true,
     period: "em andamento",
-    metrics: [
-      { value: "113", label: "rotas" },
-      { value: "3", label: "painéis" },
-      { value: "26", label: "tabelas" },
-      { value: "28", label: "migrations" },
-      { value: "~22k", label: "linhas" },
-    ],
   },
   {
     slug: "calendario-unificado",
@@ -216,11 +183,6 @@ export const projects: Project[] = [
       },
     ],
     period: "em andamento",
-    metrics: [
-      { value: "15", label: "rotas de API" },
-      { value: "11", label: "tabelas" },
-      { value: "~12,2k", label: "linhas" },
-    ],
   },
   {
     slug: "register-students",
@@ -273,7 +235,6 @@ export const projects: Project[] = [
     stack: ["Next.js 16", "React", "Framer Motion", "Tailwind CSS", "shadcn/ui"],
     links: [{ label: "GitHub", url: "https://github.com/LucasCastro100/style-hub" }],
     period: "set/2026",
-    metrics: [{ value: "14", label: "componentes documentados" }],
   },
   {
     slug: "app-financas",
@@ -294,10 +255,6 @@ export const projects: Project[] = [
     ],
     links: [{ label: "GitHub", url: "https://github.com/LucasCastro100/app-financas" }],
     period: "ago/2026",
-    metrics: [
-      { value: "42", label: "componentes" },
-      { value: "~4,7k", label: "linhas" },
-    ],
   },
   {
     slug: "base-nextjs",
@@ -316,7 +273,6 @@ export const projects: Project[] = [
     ],
     links: [{ label: "GitHub", url: "https://github.com/LucasCastro100/base-nextjs" }],
     period: "ago/2026",
-    metrics: [{ value: "~4,2k", label: "linhas" }],
   },
   {
     slug: "cola-componente",
@@ -330,7 +286,6 @@ export const projects: Project[] = [
       { label: "GitHub", url: "https://github.com/LucasCastro100/cola-componente" },
     ],
     period: "set/2026",
-    metrics: [{ value: "10+", label: "guias" }],
   },
   {
     slug: "pyton",
@@ -349,10 +304,6 @@ export const projects: Project[] = [
     ],
     links: [{ label: "GitHub", url: "https://github.com/LucasCastro100/pyton" }],
     period: "jan/2025 – atual",
-    metrics: [
-      { value: "96", label: "scripts .py" },
-      { value: "7", label: "subprojetos" },
-    ],
   },
   {
     slug: "rcstudio",
