@@ -10,7 +10,7 @@ export function Skills() {
       <SectionHeading
         eyebrow="Stacks"
         title="Tecnologias que uso no dia a dia"
-        description="Do frontend animado ao deploy com Docker, passando por automações em Python e n8n — as ferramentas que aparecem nos projetos abaixo."
+        description="Desenvolvimento full-stack, automação de processos e infraestrutura ágil em ambientes de produção."
       />
 
       <Reveal className="mb-10">
