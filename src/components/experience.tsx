@@ -8,7 +8,6 @@ export function Experience() {
       <SectionHeading
         eyebrow="Experiência"
         title="Trajetória profissional"
-        description="Mais de 8 anos desenvolvendo produtos web, de agências a produtos próprios."
       />
 
       <ol className="relative border-l border-line">
