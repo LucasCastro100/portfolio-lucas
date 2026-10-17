@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import {
-  otherRepos,
   projectCategories,
   projects,
   type Project,
@@ -75,47 +74,6 @@ export function Projects() {
         {visible.map((project, index) => (
           <ProjectCard key={project.slug} project={project} index={index} />
         ))}
-      </div>
-
-      <div className="mt-14">
-        <Reveal>
-          <h3 className="text-sm font-semibold text-foreground">Outros repositórios</h3>
-          <p className="mt-1 text-sm text-muted">
-            Projetos menores, estudos e o repositório de perfil.
-          </p>
-        </Reveal>
-        <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-          {otherRepos.map((repo, index) => (
-            <StaggerItem key={repo.name} index={index}>
-              <SpotlightCard className="h-full p-4">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <p className="font-mono text-sm font-semibold text-foreground">
-                      {repo.name}
-                    </p>
-                    <p className="mt-1 text-xs leading-relaxed text-muted">
-                      {repo.description}
-                    </p>
-                    <span className="mt-2 inline-block font-mono text-[11px] text-muted/70">
-                      {repo.stack}
-                    </span>
-                  </div>
-                  {repo.url ? (
-                    <a
-                      href={repo.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Abrir ${repo.name} no GitHub`}
-                      className="mt-0.5 text-muted transition-colors hover:text-foreground"
-                    >
-                      <GithubIcon className="size-4" />
-                    </a>
-                  ) : null}
-                </div>
-              </SpotlightCard>
-            </StaggerItem>
-          ))}
-        </ul>
       </div>
     </Section>
   );

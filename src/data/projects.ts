@@ -328,40 +328,6 @@ export const projects: Project[] = [
   },
 ];
 
-export type OtherRepo = {
-  name: string;
-  description: string;
-  stack: string;
-  url?: string;
-};
-
-export const otherRepos: OtherRepo[] = [
-  {
-    name: "control-school",
-    description: "Repositório agregador original do Control School, hoje dividido em back e front.",
-    stack: "TypeScript",
-    url: "https://github.com/LucasCastro100/control-school",
-  },
-  {
-    name: "all-agend",
-    description: "Projeto pessoal focado em agendamento.",
-    stack: "TypeScript",
-    url: "https://github.com/LucasCastro100/all-agend",
-  },
-  {
-    name: "java_script",
-    description: "Exercícios e estudos de JavaScript.",
-    stack: "JavaScript / TypeScript",
-    url: "https://github.com/LucasCastro100/java_script",
-  },
-  {
-    name: "LucasCastro100",
-    description: "Repositório de perfil do GitHub exibido na página inicial.",
-    stack: "Markdown",
-    url: "https://github.com/LucasCastro100/LucasCastro100",
-  },
-];
-
 export const projectCategories: ProjectCategory[] = [
   "Full-Stack",
   "Frontend",
