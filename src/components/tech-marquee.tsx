@@ -9,7 +9,7 @@ export function TechMarquee({ reverse = false }: { reverse?: boolean }) {
     <div className="relative">
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent" />
-      <InfiniteMarquee duration={reverse ? 48 : 40} reverse={reverse}>
+      <InfiniteMarquee duration={reverse ? 96 : 80} reverse={reverse}>
         {marqueeTechs.map((tech) => (
           <span
             key={tech.slug}
