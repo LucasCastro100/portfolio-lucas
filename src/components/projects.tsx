@@ -36,8 +36,8 @@ export function Projects() {
     <Section id="projetos">
       <SectionHeading
         eyebrow="Projetos"
-        title="O que eu construí"
-        description="Seleção dos principais projetos com a stack de cada um. Alguns repositórios são privados."
+        title="Projetos em Destaque"
+        description="Uma seleção das principais soluções desenvolvidas e as tecnologias aplicadas. Alguns repositórios são privados devido a acordos de confidencialidade (NDA) ou uso corporativo."
       />
 
       <Reveal>
