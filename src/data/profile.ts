@@ -21,16 +21,6 @@ export const profile = {
       "No caminho já são mais de 2.100 arquivos de projeto e ~213 mil linhas de código próprias escritas até aqui.",
       "Atuo de ponta a ponta — do banco de dados à interface, do deploy à automação dos processos que rodam em produção.",
     ],
-    pillars: [
-      {
-        title: "Tecnologia Educacional",
-        text: "Oriento professores no ensino de pensamento computacional para crianças e jovens (3 a 16 anos). Essa vivência refinou minha capacidade de desmistificar conceitos complexos e criar código limpo e intuitivo.",
-      },
-      {
-        title: "Freelancer",
-        text: "Disponível para projetos web, integrações de APIs e automações sob medida.",
-      },
-    ],
   },
   stats: [
     { value: "8+", label: "anos de experiência" },

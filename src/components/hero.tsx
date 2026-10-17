@@ -12,12 +12,11 @@ import { ProfileCard3D } from "./ui/profile-card-3d";
 import { Reveal } from "./ui/reveal";
 import { BlurFade } from "./ui/blur-fade";
 import { NumberTicker } from "./ui/number-ticker";
-import { AboutBlock } from "./about";
 
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div className="mx-auto max-w-6xl px-5 pt-16 pb-6 sm:pt-24">
+      <div className="mx-auto max-w-6xl px-5 pt-16 pb-16 sm:pt-24 sm:pb-20">
         <div className="grid items-center gap-12 lg:grid-cols-[1.45fr_1fr]">
           <div>
             <Reveal>
@@ -107,8 +106,6 @@ export function Hero() {
           </BlurFade>
         </div>
       </div>
-
-      <AboutBlock />
     </section>
   );
 }

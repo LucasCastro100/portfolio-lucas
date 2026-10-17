@@ -2,7 +2,6 @@ import { profile } from "@/data/profile";
 import { GithubIcon, LinkedinIcon, MailIcon } from "./icons";
 
 const links = [
-  { href: "#sobre", label: "Sobre" },
   { href: "#servicos", label: "Serviços" },
   { href: "#stacks", label: "Stacks" },
   { href: "#projetos", label: "Projetos" },
