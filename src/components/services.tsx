@@ -49,8 +49,8 @@ export function Services() {
     <Section id="servicos">
       <SectionHeading
         eyebrow="Serviços"
-        title="O que eu faço"
-        description="Do produto ao deploy: construo a aplicação, coloco em produção e automatizo o que dá pra automatizar."
+        title="Desenvolvimento Full-Stack End-to-End & Automação"
+        description="Atuo em todas as etapas do ciclo de software: da concepção do produto e arquitetura da aplicação ao deploy em produção e automação de processos estratégicos."
       />
 
       <div className="grid gap-5 md:grid-cols-3">
