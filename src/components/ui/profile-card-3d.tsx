@@ -1,91 +1,42 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useRef, type MouseEvent } from "react";
 import { education, profile } from "@/data/profile";
 import { MailIcon, WhatsappIcon } from "../icons";
 
-const MAX_TILT = 9;
-
 /**
- * Card 3D com a foto + as informações pessoais.
- * Inclina seguindo o cursor (tilt) e usa profundidade (translateZ) para dar parallax.
+ * Card 3D que "vira": a frente mostra as informações e, ao passar o mouse
+ * (ou tocar, no celular), o card gira em 180° e revela a foto.
+ * O card é quadrado para a foto (também quadrada) se ajustar sem cortes.
  */
 export function ProfileCard3D() {
-  const ref = useRef<HTMLDivElement>(null);
-  const px = useMotionValue(0.5);
-  const py = useMotionValue(0.5);
-
-  const rotateX = useSpring(useTransform(py, [0, 1], [MAX_TILT, -MAX_TILT]), {
-    stiffness: 180,
-    damping: 18,
-  });
-  const rotateY = useSpring(useTransform(px, [0, 1], [-MAX_TILT, MAX_TILT]), {
-    stiffness: 180,
-    damping: 18,
-  });
-
-  function handleMove(event: MouseEvent<HTMLDivElement>) {
-    const rect = ref.current?.getBoundingClientRect();
-    if (!rect) return;
-    px.set((event.clientX - rect.left) / rect.width);
-    py.set((event.clientY - rect.top) / rect.height);
-  }
-
-  function reset() {
-    px.set(0.5);
-    py.set(0.5);
-  }
-
   return (
-    <div className="relative mx-auto w-full max-w-sm [perspective:1200px]">
+    <div className="group relative mx-auto w-full max-w-sm [perspective:1400px]">
       <div
         aria-hidden
         className="pointer-events-none absolute -inset-6 rounded-[2.5rem] bg-accent/15 blur-3xl"
       />
 
-      <motion.div
-        ref={ref}
-        onMouseMove={handleMove}
-        onMouseLeave={reset}
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="relative rounded-[1.75rem] border border-line bg-card/80 p-5 shadow-2xl shadow-black/50 backdrop-blur"
-      >
-        <div style={{ transform: "translateZ(45px)" }} className="relative mx-auto w-full max-w-[16rem]">
-          <div className="relative overflow-hidden rounded-[1.35rem] p-px">
-            <div
-              aria-hidden
-              className="absolute left-1/2 top-1/2 aspect-square w-[200%] -translate-x-1/2 -translate-y-1/2 animate-beam-spin"
-              style={{
-                background:
-                  "conic-gradient(from 0deg, rgba(59,130,246,0) 0deg, rgba(59,130,246,0.85) 80deg, rgba(96,165,250,1) 130deg, rgba(59,130,246,0) 210deg, rgba(59,130,246,0) 360deg)",
-              }}
-            />
-            <div className="relative overflow-hidden rounded-[calc(1.35rem-1px)] bg-card">
-              <Image
-                src="/lucas-oliveira.jpg"
-                alt={`Foto de ${profile.name}`}
-                width={480}
-                height={480}
-                priority
-                className="aspect-square size-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
+      <div className="relative aspect-square rounded-[1.75rem] transition-transform duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-active:[transform:rotateY(180deg)] motion-reduce:transition-none">
+        {/* FRENTE — Informações */}
+        <div className="flex h-full flex-col justify-between rounded-[1.75rem] border border-line bg-card/80 p-5 shadow-2xl shadow-black/50 backdrop-blur [backface-visibility:hidden]">
+          <div>
+            <div className="flex items-center justify-between gap-3">
+              <p className="text-sm font-semibold text-foreground">Informações</p>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-line px-2 py-0.5 text-[10px] uppercase tracking-wide text-muted/70">
+                <FlipIcon className="size-3.5" />
+                Passe o mouse
+              </span>
             </div>
+
+            <dl className="mt-5 space-y-4 text-sm">
+              <InfoRow label="Localização" value={profile.location} />
+              <InfoRow label="Formação" value={`${education.course} · ${education.school}`} />
+            </dl>
           </div>
-        </div>
 
-        <div style={{ transform: "translateZ(28px)" }} className="mt-5">
-          <p className="text-sm font-semibold text-foreground">Informações</p>
-
-          <dl className="mt-4 space-y-3 text-sm">
-            <InfoRow label="Localização" value={profile.location} />
-            <InfoRow label="Formação" value={`${education.course} · ${education.school}`} />
-            <InfoRow label="Aprendizado" value="Sempre buscando novos conhecimentos" />
-          </dl>
-
-          <div className="mt-5 space-y-2 border-t border-line pt-4">
+          <div className="space-y-2 border-t border-line pt-4">
+            <p className="text-xs uppercase tracking-wide text-muted/70">Contato</p>
             <a
               href={`mailto:${profile.email}`}
               className="flex items-center gap-2.5 text-sm text-muted transition-colors hover:text-foreground"
@@ -104,7 +55,24 @@ export function ProfileCard3D() {
             </a>
           </div>
         </div>
-      </motion.div>
+
+        {/* VERSO — Foto */}
+        <div className="absolute inset-0 overflow-hidden rounded-[1.75rem] border border-line bg-card shadow-2xl shadow-black/50 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+          <Image
+            src="/lucas-oliveira.jpg"
+            alt={`Foto de ${profile.name}`}
+            width={560}
+            height={560}
+            priority
+            className="size-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-transparent to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 p-4">
+            <p className="text-sm font-semibold text-foreground">{profile.name}</p>
+            <p className="mt-0.5 text-xs text-muted">Volte o mouse para as informações</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -115,5 +83,24 @@ function InfoRow({ label, value }: { label: string; value: string }) {
       <dt className="text-xs uppercase tracking-wide text-muted/70">{label}</dt>
       <dd className="mt-0.5 text-foreground">{value}</dd>
     </div>
+  );
+}
+
+function FlipIcon(props: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      {...props}
+    >
+      <path d="M12 3v18" strokeDasharray="2 3" />
+      <path d="M8 7 4.5 10.5 8 14" />
+      <path d="m16 10 3.5 3.5L16 17" />
+    </svg>
   );
 }
