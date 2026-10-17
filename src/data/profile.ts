@@ -2,7 +2,8 @@ export const profile = {
   name: "Lucas Henrique de Castro Oliveira",
   shortName: "Lucas Oliveira",
   role: "Desenvolvedor Full-Stack",
-  headline: "Construo plataformas web de ponta a ponta.",
+  headline:
+    "Construo plataformas full-stack, automatizo processos e coloco em produção.",
   tagline:
     "Há mais de 8 anos transformando problemas de negócio em SaaS, sistemas de gestão, marketplaces e automações que rodam em produção.",
   location: "Uberaba, MG · Brasil",
@@ -18,20 +19,24 @@ export const profile = {
     paragraphs: [
       "Há mais de 8 anos desenvolvendo para a web: evoluí da criação de landing pages em HTML, CSS e PHP para a construção de arquiteturas modernas e escaláveis.",
       "No caminho já são mais de 2.100 arquivos de projeto e ~213 mil linhas de código próprias escritas até aqui.",
-      "Hoje me divido entre o desenvolvimento de software e a tecnologia educacional.",
+      "Atuo de ponta a ponta — do banco de dados à interface, do deploy à automação dos processos que rodam em produção.",
     ],
     pillars: [
       {
         title: "Full-Stack Engineering",
-        text: "No dia a dia construo aplicações end-to-end com Next.js, TypeScript e Node.js. Em ecossistemas mais robustos, atuo com Laravel no backend e uso Python para automações e raspagem de dados.",
+        text: "Construo aplicações end-to-end com Next.js, TypeScript e Node.js. Em ecossistemas mais robustos, atuo com Laravel no backend e com bancos PostgreSQL, MySQL, MongoDB e Redis.",
+      },
+      {
+        title: "DevOps & Infra",
+        text: "Coloco e mantenho tudo em produção: Docker, CI/CD com GitHub Actions, Linux, Nginx/Traefik e Portainer. Build, deploy, variáveis de ambiente, backup e operação.",
+      },
+      {
+        title: "Automação & Dados",
+        text: "Robôs e integrações que eliminam trabalho manual: Python, Selenium/Playwright e n8n para web scraping, sincronização de dados e fluxos entre sistemas.",
       },
       {
         title: "Tecnologia Educacional",
         text: "Oriento professores no ensino de pensamento computacional para crianças e jovens (3 a 16 anos). Essa vivência refinou minha capacidade de desmistificar conceitos complexos e criar código limpo e intuitivo.",
-      },
-      {
-        title: "Freelancer",
-        text: "Disponível para projetos web, integrações de APIs e automações sob medida.",
       },
     ],
   },
@@ -41,75 +46,6 @@ export const profile = {
     { value: "20", label: "sistemas em 1 plataforma" },
   ],
 } as const;
-
-export type SkillGroup = {
-  title: string;
-  icon: string;
-  skills: string[];
-};
-
-export const skillGroups: SkillGroup[] = [
-  {
-    title: "Frontend",
-    icon: "layout",
-    skills: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "shadcn/ui",
-      "Framer Motion",
-      "GSAP",
-      "React Three Fiber",
-      "Recharts",
-      "FullCalendar",
-    ],
-  },
-  {
-    title: "Backend & Banco",
-    icon: "server",
-    skills: [
-      "Node.js",
-      "Laravel",
-      "PHP",
-      "Prisma",
-      "PostgreSQL",
-      "MySQL",
-      "MongoDB",
-      "SQLite",
-      "REST APIs",
-      "Sanctum / Auth.js",
-    ],
-  },
-  {
-    title: "Automação & Dados",
-    icon: "bot",
-    skills: [
-      "Python",
-      "Selenium",
-      "pandas",
-      "Streamlit",
-      "Matplotlib",
-      "ThreadPoolExecutor",
-      "Web Scraping",
-      "Excel / CSV",
-    ],
-  },
-  {
-    title: "DevOps & Ferramentas",
-    icon: "wrench",
-    skills: [
-      "Git & GitHub",
-      "Docker",
-      "Vite",
-      "pnpm",
-      "Playwright",
-      "Vitest",
-      "Biome",
-      "Stripe",
-    ],
-  },
-];
 
 export type Experience = {
   company: string;
@@ -134,6 +70,7 @@ export const experiences: Experience[] = [
       "Clubset — plataforma para videomakers com permutas e troca de serviços, créditos e assinaturas via Stripe (2FA e Passkeys).",
       "Neuro Comunicação — plataforma de cursos EAD focada em PNL, com certificados em PDF e checkout via Stripe.",
       "Control School — painel das escolas atendidas pela empresa, com automação de cadastro e inserção de dados via web scraping (Playwright).",
+      "Automações com n8n — fluxos que integram APIs e sistemas internos e eliminam tarefas manuais repetitivas.",
     ],
   },
   {
@@ -167,5 +104,4 @@ export const experiences: Experience[] = [
 export const education = {
   school: "UNIUBE — Universidade de Uberaba",
   course: "Sistema de Informação",
-  extra: "Curso complementar: Python Básico",
 } as const;

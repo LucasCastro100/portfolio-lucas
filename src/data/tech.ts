@@ -106,8 +106,8 @@ export const techGroups: TechGroup[] = [
   },
   {
     title: "Automação & Dados",
-    description: "Robôs, scraping e análise de dados com Python.",
-    techs: [siPython, siSelenium, siPandas, siNumpy, siStreamlit],
+    description: "Robôs, scraping, integrações e automação de fluxos com Python e n8n.",
+    techs: [siPython, siSelenium, siPandas, siNumpy, siStreamlit, siN8n],
   },
   {
     title: "DevOps & Infra",
@@ -129,7 +129,6 @@ export const techGroups: TechGroup[] = [
     title: "Ferramentas",
     description: "O que uso no dia a dia para construir e entregar.",
     techs: [
-      siN8n,
       siWordpress,
       siComposer,
       siPnpm,
