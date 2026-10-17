@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { profile } from "@/data/profile";
 import { GridBackground } from "@/components/ui/grid-background";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
@@ -67,6 +69,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <GridBackground />
         <ScrollProgress />
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
