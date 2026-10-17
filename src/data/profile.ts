@@ -1,9 +1,8 @@
 export const profile = {
   name: "Lucas Henrique de Castro Oliveira",
   shortName: "Lucas Oliveira",
-  role: "Desenvolvedor Full-Stack",
-  headline:
-    "Construo plataformas full-stack, automatizo processos e coloco em produção.",
+  role: "Engenheiro de Software",
+  headline: "Desenvolvedor Full Stack | +8 anos de experiência",
   tagline:
     "Há mais de 8 anos transformando problemas de negócio em SaaS, sistemas de gestão, marketplaces e automações que rodam em produção.",
   location: "Uberaba, MG · Brasil",
@@ -16,11 +15,17 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/lucas-oliveira-38993a202/",
   resume: "/curriculo-lucas-oliveira.pdf",
   githubBio: {
-    paragraphs: [
-      "Há mais de 8 anos desenvolvendo para a web: evoluí da criação de landing pages em HTML, CSS e PHP para a construção de arquiteturas modernas e escaláveis.",
-      "No caminho já são mais de 2.100 arquivos de projeto e ~213 mil linhas de código próprias escritas até aqui.",
-      "Atuo de ponta a ponta — do banco de dados à interface, do deploy à automação dos processos que rodam em produção.",
+    intro:
+      "Há mais de 8 anos transformando problemas reais em soluções tecnológicas — de prototipagem física e robótica ao desenvolvimento de software completo em escala.",
+    trajectory:
+      "Minha trajetória une o raciocínio prático da cultura maker (Arduino, automação, prototipagem) à engenharia de software moderna. Atuei na formação tecnológica e na criação de aplicações web de ponta a ponta: do modelo de dados e arquitetura de APIs ao frontend reativo, infraestrutura e deploy.",
+    stack: [
+      { label: "Frontend", value: "React, Next.js, TypeScript, Tailwind CSS" },
+      { label: "Backend & APIs", value: "Node.js, NestJS, Laravel, Python, REST APIs" },
+      { label: "DevOps & Infra", value: "Docker, Nginx, CI/CD, Automações (n8n)" },
     ],
+    closing:
+      "Foco em conectar código limpo, automação inteligente e usabilidade para entregar impacto direto ao negócio.",
   },
   stats: [
     { value: "8+", label: "anos de experiência" },
