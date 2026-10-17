@@ -150,7 +150,6 @@ export const marqueeTechs: SimpleIcon[] = Array.from(
 
 /** Stacks principais em destaque no card de perfil. */
 export const mainTechs: SimpleIcon[] = [
-  siReact,
   siNextdotjs,
   siTypescript,
   siLaravel,

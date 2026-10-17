@@ -20,10 +20,10 @@ export function ProfileCard3D() {
         className="pointer-events-none absolute -inset-6 rounded-[2.5rem] bg-accent/15 blur-3xl"
       />
 
-      <div className="relative aspect-square rounded-[1.75rem] transition-transform duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-active:[transform:rotateY(180deg)] motion-reduce:transition-none">
+      <div className="relative aspect-square min-h-[20rem] rounded-[1.75rem] transition-transform duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-active:[transform:rotateY(180deg)] motion-reduce:transition-none">
         {/* FRENTE — Informações */}
         <div className="flex h-full flex-col justify-between rounded-[1.75rem] border border-line bg-card/80 p-5 shadow-2xl shadow-black/50 backdrop-blur [backface-visibility:hidden]">
-          <div className="space-y-5">
+          <div className="space-y-4">
             <div className="flex items-center justify-between gap-3">
               <p className="text-sm font-semibold text-foreground">Informações</p>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-line px-2 py-0.5 text-[10px] uppercase tracking-wide text-muted/70">
@@ -41,19 +41,15 @@ export function ProfileCard3D() {
               <p className="text-xs uppercase tracking-wide text-muted/70">
                 Stacks principais
               </p>
-              <ul className="mt-2.5 flex flex-wrap gap-1.5">
+              <ul className="mt-2.5 flex flex-wrap gap-2">
                 {mainTechs.map((tech) => (
                   <li key={tech.slug}>
                     <span
                       title={tech.title}
                       style={{ ["--brand" as string]: `#${tech.hex}` }}
-                      className="group/tech inline-flex items-center gap-1.5 rounded-full border border-line bg-background/50 px-2.5 py-1 text-[11px] font-medium text-muted transition-colors hover:border-[var(--brand)]/50 hover:text-foreground"
+                      className="grid size-8 place-items-center rounded-lg border border-line bg-background/50 text-muted transition-colors hover:border-[var(--brand)]/60 hover:text-[var(--brand)]"
                     >
-                      <TechLogo
-                        icon={tech}
-                        className="size-3.5 shrink-0 transition-colors group-hover/tech:text-[var(--brand)]"
-                      />
-                      {tech.title}
+                      <TechLogo icon={tech} className="size-3.5" />
                     </span>
                   </li>
                 ))}
