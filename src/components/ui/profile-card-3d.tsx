@@ -2,9 +2,7 @@
 
 import Image from "next/image";
 import { education, profile } from "@/data/profile";
-import { mainTechs } from "@/data/tech";
 import { MailIcon, WhatsappIcon } from "../icons";
-import { TechLogo } from "./tech-logo";
 
 /**
  * Card 3D que "vira": a frente mostra as informações (localização, formação,
@@ -36,25 +34,6 @@ export function ProfileCard3D() {
               <InfoRow label="Localização" value={profile.location} />
               <InfoRow label="Formação" value={`${education.course} · ${education.school}`} />
             </dl>
-
-            <div>
-              <p className="text-xs uppercase tracking-wide text-muted/70">
-                Stacks principais
-              </p>
-              <ul className="mt-2.5 flex flex-wrap gap-2">
-                {mainTechs.map((tech) => (
-                  <li key={tech.slug}>
-                    <span
-                      title={tech.title}
-                      style={{ ["--brand" as string]: `#${tech.hex}` }}
-                      className="grid size-8 place-items-center rounded-lg border border-line bg-background/50 text-muted transition-colors hover:border-[var(--brand)]/60 hover:text-[var(--brand)]"
-                    >
-                      <TechLogo icon={tech} className="size-3.5" />
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
           <div className="mt-4 space-y-2 border-t border-line pt-4">

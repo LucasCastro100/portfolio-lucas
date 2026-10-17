@@ -46,13 +46,14 @@ export function Hero() {
 
             <Reveal delay={0.25}>
               <div className="mt-4 max-w-2xl space-y-3 text-base leading-relaxed text-muted">
-                <p>{profile.githubBio.intro}</p>
-                <p>{profile.githubBio.trajectory}</p>
+                {profile.githubBio.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
               </div>
 
               <div className="mt-6 max-w-2xl">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                  Stack &amp; Especialidades
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                  {profile.githubBio.stackLabel}
                 </p>
                 <dl className="mt-3 space-y-1.5 text-sm">
                   {profile.githubBio.stack.map((group) => (

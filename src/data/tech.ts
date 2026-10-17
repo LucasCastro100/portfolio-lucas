@@ -148,15 +148,4 @@ export const marqueeTechs: SimpleIcon[] = Array.from(
   new Map(techGroups.flatMap((g) => g.techs).map((t) => [t.slug, t])).values(),
 );
 
-/** Stacks principais em destaque no card de perfil. */
-export const mainTechs: SimpleIcon[] = [
-  siNextdotjs,
-  siTypescript,
-  siLaravel,
-  siNodedotjs,
-  siPostgresql,
-  siDocker,
-  siN8n,
-];
-
 export type { SimpleIcon };

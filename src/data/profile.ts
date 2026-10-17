@@ -2,7 +2,7 @@ export const profile = {
   name: "Lucas Henrique de Castro Oliveira",
   shortName: "Lucas Oliveira",
   role: "Engenheiro de Software",
-  headline: "Desenvolvedor Full Stack | +8 anos de experiência",
+  headline: "Full Stack & Orientador em Tecnologia",
   tagline:
     "Há mais de 8 anos transformando problemas de negócio em SaaS, sistemas de gestão, marketplaces e automações que rodam em produção.",
   location: "Uberaba, MG · Brasil",
@@ -15,17 +15,20 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/lucas-oliveira-38993a202/",
   resume: "/curriculo-lucas-oliveira.pdf",
   githubBio: {
-    intro:
-      "Há mais de 8 anos transformando problemas reais em soluções tecnológicas — de prototipagem física e robótica ao desenvolvimento de software completo em escala.",
-    trajectory:
-      "Minha trajetória une o raciocínio prático da cultura maker (Arduino, automação, prototipagem) à engenharia de software moderna. Atuei na formação tecnológica e na criação de aplicações web de ponta a ponta: do modelo de dados e arquitetura de APIs ao frontend reativo, infraestrutura e deploy.",
+    paragraphs: [
+      "Há mais de 8 anos transformando tecnologia em soluções reais — unindo a engenharia de software de ponta à educação tecnológica e inovação.",
+      "Minha trajetória une o desenvolvimento de software robusto à vivência prática com cultura maker e prototipagem. Com 6 anos de atuação em educação tecnológica (robótica, ecossistemas LEGO, Arduino e fabricação digital), desenvolvi uma forte habilidade de traduzir problemas complexos em arquiteturas simples, escaláveis e usáveis.",
+      "No desenvolvimento de software, atuo de ponta a ponta: do design do banco de dados e APIs ao frontend responsivo, automações de processos e infraestrutura.",
+    ],
+    stackLabel: "O que construo e utilizo no dia a dia",
     stack: [
       { label: "Frontend", value: "React, Next.js, TypeScript, Tailwind CSS" },
       { label: "Backend & APIs", value: "Node.js, NestJS, Laravel, Python, REST APIs" },
-      { label: "DevOps & Infra", value: "Docker, Nginx, CI/CD, Automações (n8n)" },
+      { label: "Infra & Automação", value: "Docker, Nginx, CI/CD, n8n, automação de fluxos" },
+      { label: "Maker & Hardware", value: "Prototipagem, Arduino, Corte a Laser, Impressão 3D" },
     ],
     closing:
-      "Foco em conectar código limpo, automação inteligente e usabilidade para entregar impacto direto ao negócio.",
+      "Aberto a conexões, novos projetos e trocas sobre engenharia de software, automação e educação tecnológica.",
   },
   stats: [
     { value: "8+", label: "anos de experiência" },
