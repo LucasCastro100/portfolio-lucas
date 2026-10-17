@@ -71,7 +71,7 @@ export const experiences: Experience[] = [
     description:
       "Orientação de professores em programação com Lego, Matata, Arduino e Tinkercad durante visitas a escolas.",
     highlights: [
-      "Captação de juízes e feedback no evento Torneio Brasil de Robótica.",
+      "Captação de juízes e feedback no evento Torneio Brasil de Robótica, atuando também na organização do evento e no suporte às equipes.",
       "Apoio na construção e programação de robôs nas escolas parceiras.",
     ],
   },
