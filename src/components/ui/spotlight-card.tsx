@@ -9,15 +9,18 @@ type SpotlightCardProps = {
   className?: string;
   /** Cor do spotlight em rgba(...) */
   glow?: string;
+  /** Feixe de luz que percorre a borda superior do card. */
+  beam?: boolean;
 };
 
 /**
- * Card com brilho radial que segue o cursor — inspirado no style-hub.
+ * Card com brilho radial que segue o cursor + feixe de luz opcional na borda.
  */
 export function SpotlightCard({
   children,
   className,
-  glow = "rgba(124, 139, 255, 0.22)",
+  glow = "rgba(59, 130, 246, 0.20)",
+  beam = false,
 }: SpotlightCardProps) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -43,6 +46,16 @@ export function SpotlightCard({
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/spotlight:opacity-100"
         style={{ background }}
       />
+
+      {beam ? (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px overflow-hidden"
+        >
+          <span className="absolute inset-y-0 left-0 w-1/3 animate-beam-x bg-gradient-to-r from-transparent via-accent to-transparent" />
+        </span>
+      ) : null}
+
       <div className="relative z-10 flex h-full flex-col">{children}</div>
     </div>
   );

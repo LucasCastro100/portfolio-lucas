@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { profile } from "@/data/profile";
-import { AnimatedBackground } from "@/components/ui/animated-background";
+import { GridBackground } from "@/components/ui/grid-background";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import "./globals.css";
 
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#05070e",
+  themeColor: "#05070c",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -60,7 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <AnimatedBackground />
+        <GridBackground />
         <ScrollProgress />
         {children}
       </body>

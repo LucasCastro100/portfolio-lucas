@@ -2,9 +2,9 @@ export const profile = {
   name: "Lucas Henrique de Castro Oliveira",
   shortName: "Lucas Oliveira",
   role: "Desenvolvedor Full-Stack",
-  headline: "Next.js · Node.js · Laravel · Python",
+  headline: "Construo plataformas web de ponta a ponta.",
   tagline:
-    "Construo web apps, SaaS e automações — do frontend animado ao backend escalável.",
+    "Há mais de 8 anos transformando problemas de negócio em SaaS, sistemas de gestão, marketplaces e automações que rodam em produção.",
   location: "Uberaba, MG · Brasil",
   email: "lucascastro121295@gmail.com",
   phone: "+55 (34) 99153-5839",
@@ -138,8 +138,10 @@ export const experiences: Experience[] = [
       "Desenvolvimento de sistemas, sites e landing pages para clientes, atuando de ponta a ponta.",
     highlights: [
       "Arquitetura do SaaS IdeasDev: 20 sistemas de gestão isolados, 75 tabelas e ~36 mil linhas num único codebase Laravel/Livewire.",
-      "Full-stack nos projetos Clubset (marketplace com Stripe, 2FA e Passkeys) e Neuro Comunicação Brasil (EAD/LMS com certificados em PDF).",
-      "Frontend do DataFi e gestão do Controle Escolas com Laravel, Next.js e web scraping.",
+      "DataFi — app de gestão de marketing, com dashboards de métricas de campanhas (Meta e Google), relatórios por cliente e integração com WhatsApp.",
+      "Clubset — plataforma para videomakers com permutas e troca de serviços, créditos e assinaturas via Stripe (2FA e Passkeys).",
+      "Neuro Comunicação — plataforma de cursos EAD focada em PNL, com certificados em PDF e checkout via Stripe.",
+      "Control School — painel das escolas atendidas pela empresa, com automação de cadastro e inserção de dados via web scraping (Playwright).",
     ],
   },
   {

@@ -10,13 +10,15 @@ import {
 import { Magnetic } from "./ui/magnetic";
 import { PhotoFrame } from "./ui/photo-frame";
 import { Reveal } from "./ui/reveal";
-import { TechMarquee } from "./tech-marquee";
+import { BlurFade } from "./ui/blur-fade";
+import { NumberTicker } from "./ui/number-ticker";
+import { AboutBlock } from "./about";
 
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div className="mx-auto max-w-6xl px-5 pt-16 pb-14 sm:pt-24 sm:pb-20">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.5fr_1fr]">
+      <div className="mx-auto max-w-6xl px-5 pt-16 pb-6 sm:pt-24">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.45fr_1fr]">
           <div>
             <Reveal>
               <span className="chip">
@@ -26,29 +28,34 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={0.05}>
-              <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl">
-                <span className="text-gradient">{profile.name}</span>
-              </h1>
-            </Reveal>
-
-            <Reveal delay={0.1}>
-              <p className="mt-4 max-w-2xl text-lg text-muted sm:text-xl">
-                <span className="font-semibold text-foreground">{profile.role}</span>{" "}
-                — {profile.headline}.
+              <p className="mt-8 font-mono text-xs font-medium uppercase tracking-[0.25em] text-accent">
+                {profile.role}
               </p>
             </Reveal>
 
-            <Reveal delay={0.15}>
-              <p className="mt-3 max-w-xl text-base leading-relaxed text-muted">
+            <BlurFade delay={0.1}>
+              <h1 className="mt-3 text-4xl font-bold leading-[1.05] tracking-tight text-balance sm:text-5xl lg:text-6xl">
+                {profile.name}
+              </h1>
+            </BlurFade>
+
+            <BlurFade delay={0.2}>
+              <p className="mt-6 max-w-2xl text-xl font-medium leading-snug text-foreground sm:text-2xl">
+                {profile.headline}
+              </p>
+            </BlurFade>
+
+            <Reveal delay={0.25}>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
                 {profile.tagline}
               </p>
             </Reveal>
 
-            <Reveal delay={0.2}>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Reveal delay={0.3}>
+              <div className="mt-9 flex flex-wrap items-center gap-3">
                 <Magnetic
                   href="#projetos"
-                  className="group gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background"
+                  className="shine group gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-[0_0_40px_-12px_var(--accent)]"
                 >
                   Ver projetos
                   <ArrowIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -79,12 +86,12 @@ export function Hero() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.25}>
+            <Reveal delay={0.35}>
               <dl className="mt-12 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-4">
                 {profile.stats.map((stat) => (
                   <div key={stat.label} className="bg-background/60 px-5 py-4 backdrop-blur">
                     <dt className="text-2xl font-bold tracking-tight text-foreground">
-                      {stat.value}
+                      <NumberTicker value={stat.value} />
                     </dt>
                     <dd className="mt-1 text-xs leading-tight text-muted">{stat.label}</dd>
                   </div>
@@ -93,15 +100,13 @@ export function Hero() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.15}>
+          <BlurFade delay={0.25}>
             <PhotoFrame />
-          </Reveal>
+          </BlurFade>
         </div>
       </div>
 
-      <Reveal>
-        <TechMarquee />
-      </Reveal>
+      <AboutBlock />
     </section>
   );
 }

@@ -79,9 +79,9 @@ export const projects: Project[] = [
   {
     slug: "clubset",
     name: "Clubset",
-    tagline: "Marketplace de permuta para o mercado audiovisual",
+    tagline: "Permutas e troca de serviços para videomakers",
     description:
-      "Anúncios de equipamento com moderação, serviços de produção, matches para troca direta/venda/permuta por créditos, livro-razão de créditos, disputas e assinaturas trial/pro/max via Stripe com bloqueio automático por inadimplência. Segurança forte com 2FA (TOTP) e login por Passkey (WebAuthn).",
+      "Marketplace para videomakers: anúncios de equipamento com moderação, serviços de produção, matches para troca direta/venda/permuta por créditos, livro-razão de créditos, disputas e assinaturas trial/pro/max via Stripe com bloqueio automático por inadimplência. Segurança forte com 2FA (TOTP) e login por Passkey (WebAuthn).",
     category: "Full-Stack",
     stack: [
       "Laravel 13",
@@ -108,9 +108,9 @@ export const projects: Project[] = [
   {
     slug: "control-school",
     name: "Control School",
-    tagline: "Gestão escolar full-stack: API Laravel + front Next.js",
+    tagline: "Gestão escolar com automação de cadastro e web scraping",
     description:
-      "Sistema de gestão escolar com alunos, turmas, professores e financeiro. A API em Laravel usa autenticação por token (Sanctum) com roles por perfil; o frontend em Next.js faz proxy para o backend, exportação para Excel e animações/3D com GSAP e React Three Fiber.",
+      "Painel de gestão das unidades escolares atendidas pela empresa: escolas, turmas, salas, alunos, horários, itens (tapetes/tecnologias), times TBR e múltiplos anos letivos. A API em Laravel usa autenticação por token (Sanctum) com roles por perfil; o frontend em Next.js faz proxy para o backend, exportação para Excel e animações/3D com GSAP e React Three Fiber. Inclui automação que importa planilhas .xlsx, insere alunos e monitoramentos na plataforma MundoZ via web scraping (Playwright) e gera cards de acesso em PDF.",
     category: "Full-Stack",
     stack: [
       "Laravel 13",
@@ -137,9 +137,6 @@ export const projects: Project[] = [
     highlight: true,
     period: "jun/2026 – atual",
     metrics: [
-      { value: "19", label: "endpoints" },
-      { value: "15", label: "models" },
-      { value: "23", label: "tabelas" },
       { value: "119", label: "arquivos TS/TSX" },
       { value: "~20,6k", label: "linhas" },
     ],
@@ -172,9 +169,9 @@ export const projects: Project[] = [
   {
     slug: "neurocomunicacao",
     name: "Neuro Comunicação Brasil",
-    tagline: "Plataforma EAD/LMS com certificados e pagamentos",
+    tagline: "Plataforma de cursos EAD de PNL com certificados",
     description:
-      "Plataforma EAD com cursos, módulos e aulas, matrículas, materiais, comentários e dúvidas, avaliações com notas, certificados em PDF e checkout por Stripe. Painéis separados para administrador, professor e aluno, além de um Teste Representacional público com resultado compartilhável.",
+      "Plataforma EAD focada em PNL (Programação Neurolinguística), com cursos, módulos e aulas, matrículas, materiais, comentários e dúvidas, avaliações com notas, certificados em PDF e checkout por Stripe. Painéis separados para administrador, professor e aluno, além de um Teste Representacional público com resultado compartilhável.",
     category: "Full-Stack",
     stack: [
       "Laravel 11",
@@ -252,9 +249,9 @@ export const projects: Project[] = [
   {
     slug: "datafi",
     name: "DataFi",
-    tagline: "Dashboard de dados e integrações para gestão",
+    tagline: "App de gestão de marketing",
     description:
-      "Frontend de um produto de dados: painéis com gráficos, autenticação (incluindo login social) e integrações com WhatsApp, Meta e Google, além de exportação de relatórios.",
+      "App de gestão de marketing para agências: dashboards com métricas de campanhas (Meta e Google), relatórios por cliente com editor, integração com WhatsApp, alertas e exportação de overview, além de autenticação (incluindo login social) e assinatura via checkout.",
     category: "Frontend",
     stack: [
       "Next.js",

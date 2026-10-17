@@ -14,7 +14,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-line/70 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
         <a href="#top" className="group flex items-center gap-2.5">
-          <span className="grid size-8 place-items-center rounded-lg bg-gradient-to-br from-accent to-cyan-400 font-mono text-sm font-bold text-[#0b1020]">
+          <span className="grid size-8 place-items-center rounded-lg bg-accent font-mono text-sm font-bold text-white">
             LO
           </span>
           <span className="text-sm font-semibold tracking-tight">

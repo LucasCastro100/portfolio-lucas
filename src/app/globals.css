@@ -13,13 +13,13 @@
 }
 
 :root {
-  --background: #05070e;
-  --foreground: #e8eefc;
-  --card: rgba(255, 255, 255, 0.035);
-  --muted: #93a1bd;
-  --line: rgba(255, 255, 255, 0.09);
-  --accent: #7c8bff;
-  --accent-soft: rgba(124, 139, 255, 0.14);
+  --background: #05070c;
+  --foreground: #e9eefb;
+  --card: rgba(255, 255, 255, 0.03);
+  --muted: #8a99b5;
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #3b82f6;
+  --accent-soft: rgba(59, 130, 246, 0.12);
 }
 
 * {
@@ -32,11 +32,6 @@ html {
 
 body {
   background-color: var(--background);
-  background-image:
-    radial-gradient(900px 500px at 12% -8%, rgba(124, 139, 255, 0.18), transparent 60%),
-    radial-gradient(760px 520px at 92% 4%, rgba(34, 211, 238, 0.12), transparent 62%),
-    radial-gradient(700px 700px at 50% 120%, rgba(168, 85, 247, 0.12), transparent 60%);
-  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -45,7 +40,7 @@ body {
 
 ::selection {
   background: var(--accent);
-  color: #0b1020;
+  color: #030712;
 }
 
 /* Scrollbar */
@@ -71,13 +66,6 @@ body {
   backdrop-filter: blur(8px);
 }
 
-@utility text-gradient {
-  background: linear-gradient(100deg, #ffffff 0%, #c7d2fe 45%, #7c8bff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
 @utility chip {
   display: inline-flex;
   align-items: center;
@@ -91,6 +79,8 @@ body {
   line-height: 1.1rem;
   white-space: nowrap;
 }
+
+/* ---- Animations ---- */
 
 @keyframes float-in {
   from {
@@ -120,6 +110,64 @@ body {
   animation: marquee linear infinite;
 }
 
+/* Rotating conic ring (used on the photo frame) */
+@keyframes beam-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-beam-spin {
+  animation: beam-spin 7s linear infinite;
+}
+
+/* Light sweep travelling along a card's top edge */
+@keyframes beam-x {
+  from {
+    transform: translateX(-130%);
+  }
+  to {
+    transform: translateX(430%);
+  }
+}
+
+.animate-beam-x {
+  animation: beam-x 4.5s ease-in-out infinite;
+}
+
+/* Diagonal shine sweep on hover */
+@keyframes shine {
+  to {
+    transform: translateX(130%);
+  }
+}
+
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-130%);
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.shine:hover::after {
+  animation: shine 0.9s ease;
+}
+
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
@@ -132,4 +180,14 @@ body {
 .animate-shimmer {
   background-size: 200% 100%;
   animation: shimmer 3s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-beam-spin,
+  .animate-beam-x,
+  .animate-marquee,
+  .animate-shimmer,
+  .shine::after {
+    animation: none !important;
+  }
 }

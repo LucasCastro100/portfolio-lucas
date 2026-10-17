@@ -2,6 +2,8 @@
 
 Portfólio pessoal em **Next.js 16 (App Router) + TypeScript + Tailwind CSS 4**, com
 animações em **Framer Motion** e logos oficiais das tecnologias (**Simple Icons**).
+Visual escuro e sóbrio (azul como acento, grade técnica no fundo), inspirado nos
+efeitos das libs do [style-hub](https://github.com/LucasCastro100/style-hub) (Magic UI / Aceternity).
 Lista projetos, stacks, experiência e canais de contato (GitHub, LinkedIn, WhatsApp e currículo em PDF).
 
 ## Rodando localmente
@@ -29,17 +31,21 @@ src/
 │  ├─ page.tsx        # monta as seções
 │  └─ globals.css     # tema escuro + utilitários (card, chip, text-gradient) + keyframes
 ├─ components/
-│  ├─ header, hero, about, skills, projects, experience, contact, footer
-│  ├─ tech-marquee.tsx        # faixa infinita de tecnologias
+│  ├─ header, hero, skills, projects, experience, contact, footer
+│  │  └─ hero.tsx        # hero + bloco "Sobre" (foto + bio) na mesma seção
+│  ├─ about.tsx         # bloco "Sobre" (usado dentro do hero)
+│  ├─ tech-marquee.tsx  # faixa infinita de tecnologias (única no site)
 │  └─ ui/
-│     ├─ animated-background.tsx  # blobs de gradiente (aurora)
-│     ├─ infinite-marquee.tsx     # faixa infinita com loop suave
-│     ├─ magnetic.tsx             # botões com efeito magnético
-│     ├─ photo-frame.tsx          # foto com moldura em gradiente
-│     ├─ reveal.tsx               # animação de entrada ao rolar
-│     ├─ scroll-progress.tsx      # barra de progresso no topo
-│     ├─ spotlight-card.tsx       # card com brilho que segue o cursor
-│     └─ tech-logo.tsx            # renderiza um logo (Simple Icons)
+│     ├─ grid-background.tsx   # grade técnica + grão (fundo)
+│     ├─ blur-fade.tsx         # entrada com desfoque (Magic UI)
+│     ├─ number-ticker.tsx     # contador animado (Magic UI)
+│     ├─ infinite-marquee.tsx  # faixa infinita com loop suave
+│     ├─ magnetic.tsx          # botões com efeito magnético
+│     ├─ photo-frame.tsx       # foto com anel de luz azul girando
+│     ├─ reveal.tsx            # animação de entrada ao rolar
+│     ├─ scroll-progress.tsx   # barra de progresso no topo
+│     ├─ spotlight-card.tsx    # card com brilho que segue o cursor + feixe
+│     └─ tech-logo.tsx         # renderiza um logo (Simple Icons)
 └─ data/
    ├─ profile.ts      # dados pessoais, bio do GitHub, skills, experiência e formação
    ├─ projects.ts     # projetos (stack, métricas, links e sistemas internos)

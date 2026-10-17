@@ -176,6 +176,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <StaggerItem index={index} className="h-full">
       <SpotlightCard
+        beam={Boolean(project.highlight)}
         className={`h-full p-6 ${project.highlight ? "ring-1 ring-accent/20" : ""}`}
       >
         <article className="flex flex-1 flex-col">
@@ -219,7 +220,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <ExpandableSystems systems={project.systems} />
           ) : null}
 
-          <ul className="mt-5 flex flex-wrap gap-2">
+          <ul className="mt-5 mb-5 flex flex-wrap gap-2">
             {project.stack.map((tech) => (
               <li key={tech} className="chip">
                 {tech}
