@@ -18,7 +18,7 @@ export function AboutBlock() {
               Sobre
             </p>
             <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
-              Do front ao deploy: full-stack, DevOps e automação
+              Do front ao deploy — e também na educação
             </h2>
           </div>
         </Reveal>

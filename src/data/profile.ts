@@ -23,20 +23,12 @@ export const profile = {
     ],
     pillars: [
       {
-        title: "Full-Stack Engineering",
-        text: "Construo aplicações end-to-end com Next.js, TypeScript e Node.js. Em ecossistemas mais robustos, atuo com Laravel no backend e com bancos PostgreSQL, MySQL, MongoDB e Redis.",
-      },
-      {
-        title: "DevOps & Infra",
-        text: "Coloco e mantenho tudo em produção: Docker, CI/CD com GitHub Actions, Linux, Nginx/Traefik e Portainer. Build, deploy, variáveis de ambiente, backup e operação.",
-      },
-      {
-        title: "Automação & Dados",
-        text: "Robôs e integrações que eliminam trabalho manual: Python, Selenium/Playwright e n8n para web scraping, sincronização de dados e fluxos entre sistemas.",
-      },
-      {
         title: "Tecnologia Educacional",
         text: "Oriento professores no ensino de pensamento computacional para crianças e jovens (3 a 16 anos). Essa vivência refinou minha capacidade de desmistificar conceitos complexos e criar código limpo e intuitivo.",
+      },
+      {
+        title: "Freelancer",
+        text: "Disponível para projetos web, integrações de APIs e automações sob medida.",
       },
     ],
   },
