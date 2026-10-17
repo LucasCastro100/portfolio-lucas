@@ -46,9 +46,11 @@ export function Hero() {
             </BlurFade>
 
             <Reveal delay={0.25}>
-              <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
-                {profile.tagline}
-              </p>
+              <div className="mt-4 max-w-2xl space-y-3 text-base leading-relaxed text-muted">
+                {profile.githubBio.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
             </Reveal>
 
             <Reveal delay={0.3}>
@@ -87,7 +89,7 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={0.35}>
-              <dl className="mt-12 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-4">
+              <dl className="mt-12 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3">
                 {profile.stats.map((stat) => (
                   <div key={stat.label} className="bg-background/60 px-5 py-4 backdrop-blur">
                     <dt className="text-2xl font-bold tracking-tight text-foreground">

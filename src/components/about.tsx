@@ -1,5 +1,5 @@
 import { education, profile } from "@/data/profile";
-import { MailIcon, SparkIcon, WhatsappIcon } from "./icons";
+import { MailIcon, WhatsappIcon } from "./icons";
 import { Reveal } from "./ui/reveal";
 
 /**
@@ -26,27 +26,11 @@ export function AboutBlock() {
         <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr]">
           <Reveal>
             <div className="card h-full p-6 sm:p-8">
-              <p className="text-lg font-semibold text-foreground">
-                {githubBio.greeting} 👋
-              </p>
-              <p className="mt-1 text-sm text-accent">{githubBio.role}</p>
-
-              <div className="mt-5 space-y-3">
-                {githubBio.paragraphs.map((paragraph) => (
-                  <p key={paragraph} className="text-sm leading-relaxed text-muted sm:text-base">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-
-              <div className="mt-6 grid gap-3 border-t border-line pt-6">
+              <div className="grid gap-6">
                 {githubBio.pillars.map((pillar) => (
-                  <div key={pillar.title} className="flex gap-3">
-                    <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-accent" />
-                    <p className="text-sm leading-relaxed text-muted">
-                      <span className="font-semibold text-foreground">{pillar.title}: </span>
-                      {pillar.text}
-                    </p>
+                  <div key={pillar.title}>
+                    <p className="font-semibold text-foreground">{pillar.title}</p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted">{pillar.text}</p>
                   </div>
                 ))}
               </div>
@@ -55,15 +39,11 @@ export function AboutBlock() {
 
           <Reveal delay={0.1}>
             <aside className="card h-fit p-6">
-              <div className="flex items-center gap-2 text-sm font-semibold">
-                <SparkIcon className="size-4 text-accent" />
-                Informações
-              </div>
+              <p className="text-sm font-semibold">Informações</p>
               <dl className="mt-5 space-y-4 text-sm">
                 <InfoRow label="Localização" value={profile.location} />
                 <InfoRow label="Formação" value={`${education.course} · ${education.school}`} />
-                <InfoRow label="Cursos" value={education.extra} />
-                <InfoRow label="Idiomas" value="Português (nativo) · Inglês (leitura técnica)" />
+                <InfoRow label="Aprendizado" value="Sempre buscando novos conhecimentos" />
               </dl>
 
               <div className="mt-6 space-y-2 border-t border-line pt-5">

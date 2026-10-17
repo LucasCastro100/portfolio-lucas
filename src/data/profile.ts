@@ -15,11 +15,9 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/lucas-oliveira-38993a202/",
   resume: "/curriculo-lucas-oliveira.pdf",
   githubBio: {
-    greeting: "Oi, eu sou o Lucas Oliveira",
-    role: "Full-Stack Developer · Automação · Tecnologia Educacional",
     paragraphs: [
       "Há mais de 8 anos desenvolvendo para a web: evoluí da criação de landing pages em HTML, CSS e PHP para a construção de arquiteturas modernas e escaláveis.",
-      "No caminho já são 18 repositórios no GitHub (15 públicos), ~213 mil linhas de código próprias e mais de 2.100 arquivos de projeto.",
+      "No caminho já são mais de 2.100 arquivos de projeto e ~213 mil linhas de código próprias escritas até aqui.",
       "Hoje me divido entre o desenvolvimento de software e a tecnologia educacional.",
     ],
     pillars: [
@@ -37,14 +35,8 @@ export const profile = {
       },
     ],
   },
-  about: [
-    "Desenvolvedor Full-Stack com mais de 8 anos de experiência criando aplicações web escaláveis. Trabalho com Next.js, Node.js, Laravel e Python — do design da interface à modelagem do banco e ao deploy.",
-    "Já são ~213 mil linhas de código próprias em 18 repositórios: de uma plataforma que hospeda 20 sistemas de gestão em um único codebase Laravel/Livewire a SaaS em Next.js + Prisma, marketplaces com Stripe e automações em Python/Selenium.",
-    "Gosto de produto bem-acabado: interfaces cuidadas, código organizado e automação onde ela realmente economiza tempo.",
-  ],
   stats: [
     { value: "8+", label: "anos de experiência" },
-    { value: "18", label: "repositórios" },
     { value: "~213k", label: "linhas de código" },
     { value: "20", label: "sistemas em 1 plataforma" },
   ],
