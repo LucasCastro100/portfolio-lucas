@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio — Lucas Henrique de Castro Oliveira
 
-## Getting Started
+Portfólio pessoal em **Next.js 16 (App Router) + TypeScript + Tailwind CSS 4**, com
+animações em **Framer Motion** e logos oficiais das tecnologias (**Simple Icons**).
+Lista projetos, stacks, experiência e canais de contato (GitHub, LinkedIn, WhatsApp e currículo em PDF).
 
-First, run the development server:
+## Rodando localmente
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Outros scripts:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm build      # build de produção
+pnpm start      # serve o build
+pnpm lint       # ESLint
+pnpm typecheck  # checagem de tipos (tsc --noEmit)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Estrutura
 
-## Learn More
+```
+src/
+├─ app/
+│  ├─ layout.tsx      # metadata, fontes (Geist), fundo animado e barra de progresso
+│  ├─ page.tsx        # monta as seções
+│  └─ globals.css     # tema escuro + utilitários (card, chip, text-gradient) + keyframes
+├─ components/
+│  ├─ header, hero, about, skills, projects, experience, contact, footer
+│  ├─ tech-marquee.tsx        # faixa infinita de tecnologias
+│  └─ ui/
+│     ├─ animated-background.tsx  # blobs de gradiente (aurora)
+│     ├─ infinite-marquee.tsx     # faixa infinita com loop suave
+│     ├─ magnetic.tsx             # botões com efeito magnético
+│     ├─ photo-frame.tsx          # foto com moldura em gradiente
+│     ├─ reveal.tsx               # animação de entrada ao rolar
+│     ├─ scroll-progress.tsx      # barra de progresso no topo
+│     ├─ spotlight-card.tsx       # card com brilho que segue o cursor
+│     └─ tech-logo.tsx            # renderiza um logo (Simple Icons)
+└─ data/
+   ├─ profile.ts      # dados pessoais, bio do GitHub, skills, experiência e formação
+   ├─ projects.ts     # projetos (stack, métricas, links e sistemas internos)
+   └─ tech.ts         # tecnologias com logos, agrupadas por categoria
+public/
+├─ curriculo-lucas-oliveira.pdf
+└─ lucas-oliveira.jpg
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Editando o conteúdo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Todo o conteúdo é orientado a dados — não precisa mexer nos componentes:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Perfil, contato, bio, experiência e formação:** `src/data/profile.ts`
+  - `githubBio` alimenta a seção "Sobre" (texto no estilo do perfil do GitHub).
+  - `whatsapp` é o link do WhatsApp (formato `https://wa.me/<DDI><número>`).
+- **Projetos:** `src/data/projects.ts`
+  - `private: true` → mostra o selo "Repositório privado" e omite o link;
+  - `highlight: true` → destaca o card;
+  - `metrics` → grade de números reais extraídos do código;
+  - `systems` → lista expansível de módulos (usada no Ideias.dev.br, com 20 sistemas).
+- **Tecnologias:** `src/data/tech.ts` — cada item é um ícone do pacote `simple-icons`,
+  agrupado em Frontend, Backend, Banco de dados, Automação & Dados, DevOps & Infra e Ferramentas.
 
-## Deploy on Vercel
+## CI (GitHub Actions)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+O workflow em `.github/workflows/ci.yml` roda em cada push/PR na `main`:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Lint** (`pnpm lint`)
+- **Type check** (`pnpm typecheck`)
+- **Build** (`pnpm build`) — com upload do artefato `.next`
+
+## Deploy
+
+Pronto para deploy na [Vercel](https://vercel.com/new) (ou qualquer host Node.js).
+Basta importar o repositório e fazer o build com `pnpm build`.
+
+> O PDF do currículo fica em `public/curriculo-lucas-oliveira.pdf` e é servido em
+> `/curriculo-lucas-oliveira.pdf`. Para atualizá-lo, substitua o arquivo.
+> A foto fica em `public/lucas-oliveira.jpg`.
