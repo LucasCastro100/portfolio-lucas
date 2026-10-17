@@ -49,7 +49,7 @@ export function Services() {
     <Section id="servicos">
       <SectionHeading
         eyebrow="Serviços"
-        title="Desenvolvimento Full-Stack End-to-End & Automação"
+        title="Desenvolvimento Full-Stack & Automação"
         description="Atuo em todas as etapas do ciclo de software: da concepção do produto e arquitetura da aplicação ao deploy em produção e automação de processos estratégicos."
       />
 
