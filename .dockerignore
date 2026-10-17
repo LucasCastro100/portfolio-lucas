@@ -1,0 +1,27 @@
+# Dependências e build (reconstruídos dentro da imagem)
+node_modules
+.next
+out
+next-env.d.ts
+
+# Git / CI / Docker (não precisam entrar no contexto)
+.git
+.github
+.gitignore
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Ambiente e logs
+.env
+.env.*
+!.env.example
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor / SO / docs
+.vscode
+.idea
+.DS_Store
+*.md

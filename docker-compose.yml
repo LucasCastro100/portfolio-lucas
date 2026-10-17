@@ -1,0 +1,17 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: portfolio-lucas:local
+    container_name: portfolio-lucas
+    restart: unless-stopped
+    ports:
+      # Porta do host (padrão 3000) -> 3000 do container.
+      # Se a 3000 estiver ocupada: WEB_PORT=3001 docker compose up --build -d
+      - "${WEB_PORT:-3000}:3000"
+    environment:
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: "1"
+      PORT: "3000"
+      HOSTNAME: "0.0.0.0"

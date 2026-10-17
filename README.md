@@ -72,11 +72,52 @@ Todo o conteúdo é orientado a dados — não precisa mexer nos componentes:
 
 ## CI (GitHub Actions)
 
-O workflow em `.github/workflows/ci.yml` roda em cada push/PR na `main`:
+- **`.github/workflows/ci.yml`** — roda em **push/PR na `main`**:
+  - **Lint** (`pnpm lint`)
+  - **Type check** (`pnpm typecheck`)
+  - **Build** (`pnpm build`) — com upload do artefato `.next`
+- **`.github/workflows/release.yml`** — roda quando você **empurra uma tag `vX.Y.Z`**:
+  verifica o projeto, publica a imagem Docker no **GHCR** e cria uma **GitHub Release**.
+  O run aparece na aba **Actions** com o nome **`Release vX.Y.Z`**.
 
-- **Lint** (`pnpm lint`)
-- **Type check** (`pnpm typecheck`)
-- **Build** (`pnpm build`) — com upload do artefato `.next`
+## Docker
+
+A imagem de produção usa `output: "standalone"` (build multi-stage em `node:22-alpine`,
+rodando como usuário sem privilégios):
+
+```bash
+# build + subir na porta 3000
+docker compose up --build -d
+
+# se a 3000 estiver ocupada, troque a porta do host
+WEB_PORT=3001 docker compose up --build -d
+```
+
+Ou direto com o Docker:
+
+```bash
+docker build -t portfolio-lucas .
+docker run --rm -p 3000:3000 portfolio-lucas
+```
+
+## Releases e versionamento
+
+O projeto segue [SemVer](https://semver.org/lang/pt-BR/). As tags iniciais são:
+
+| Tag | Significado |
+| --- | --- |
+| `v0.0.0` | esqueleto inicial (Create Next App) |
+| `v0.1.0` | portfólio funcional (conteúdo, animações, CI) |
+| `v1.0.0` | redesign visual final (tema azul + Docker + releases) |
+
+Para publicar uma nova versão, crie e empurre a tag:
+
+```bash
+git tag v1.0.1        # correção (patch) — use v1.1.0 (minor) ou v2.0.0 (major) quando fizer sentido
+git push origin v1.0.1
+```
+
+O workflow `release.yml` dispara sozinho e o run aparece como **`Release v1.0.1`** na aba **Actions**.
 
 ## Deploy
 
