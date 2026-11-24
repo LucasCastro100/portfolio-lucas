@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: { agentUpgrade: "security" },
   // Gera um pacote enxuto em .next/standalone (usado pelo Dockerfile).
   output: "standalone",
   cacheComponents: true,

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     default: title,
     template: `%s · ${profile.shortName}`,
   },
-  description: `${profile.role} com mais de 8 anos de experiência em Next.js, Node.js, Laravel e Python — com DevOps (Docker, CI/CD) e automação (n8n, Selenium). Portfólio de projetos, stacks e contato.`,
+  description: `${profile.role} com Next.js, Node.js, Laravel e Python, DevOps (Docker, CI/CD) e automação (n8n, Selenium). Portfólio de projetos, stacks e contato.`,
   keywords: [
     "Lucas Oliveira",
     "Desenvolvedor Full-Stack",
@@ -63,6 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">

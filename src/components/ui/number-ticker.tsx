@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 /**
  * Contador animado ao entrar na viewport (padrão "Number Ticker" da Magic UI).
- * Aceita valores como "8+", "18", "~213k" e anima só a parte numérica.
+ * Anima só a parte numérica do valor, mantendo prefixo e sufixo.
  * Renderiza o valor final no servidor e antes de entrar na tela (bom pra SEO
  * e para quem está sem JavaScript); conta de 0 até o alvo ao aparecer.
  */

@@ -2,6 +2,7 @@ export type ProjectCategory =
   | "Full-Stack"
   | "Frontend"
   | "Automação"
+  | "DevOps"
   | "Conteúdo";
 
 export type ProjectLink = {
@@ -17,6 +18,10 @@ export type Project = {
   category: ProjectCategory;
   stack: string[];
   links?: ProjectLink[];
+  /** URL do site em produção — habilita o preview na página de detalhes. */
+  site?: string;
+  /** Estudos/referências: ficam na marcação compacta, fora da lista principal. */
+  study?: boolean;
   private?: boolean;
   highlight?: boolean;
   period?: string;
@@ -42,6 +47,7 @@ export const projects: Project[] = [
       "SQLite",
     ],
     links: [{ label: "GitHub", url: "https://github.com/LucasCastro100/ideias_dev" }],
+    site: "https://ideias.dev.br",
     highlight: true,
     period: "jul/2025 – atual",
     systems: [
@@ -89,15 +95,13 @@ export const projects: Project[] = [
     period: "em andamento",
   },
   {
-    slug: "control-school",
-    name: "Control School",
+    slug: "control-school-front",
+    name: "Control School — Frontend",
     tagline: "Gestão escolar com automação de cadastro e web scraping",
     description:
-      "Painel de gestão das unidades escolares atendidas pela empresa: escolas, turmas, salas, alunos, horários, itens (tapetes/tecnologias), times TBR e múltiplos anos letivos. A API em Laravel usa autenticação por token (Sanctum) com roles por perfil; o frontend em Next.js faz proxy para o backend, exportação para Excel e animações/3D com GSAP e React Three Fiber. Inclui automação que importa planilhas .xlsx, insere alunos e monitoramentos na plataforma MundoZ via web scraping (Playwright) e gera cards de acesso em PDF.",
+      "Painel de gestão das unidades escolares atendidas pela empresa: escolas, turmas, salas, alunos, horários, itens (tapetes/tecnologias), times TBR e múltiplos anos letivos. Faz proxy para a API Laravel, exporta Excel e usa animações/3D com GSAP e React Three Fiber. Também importa planilhas .xlsx, insere alunos no MundoZ via Playwright e gera cards de acesso em PDF.",
     category: "Full-Stack",
     stack: [
-      "Laravel 13",
-      "Sanctum",
       "Next.js 16",
       "React 19",
       "TypeScript",
@@ -107,18 +111,36 @@ export const projects: Project[] = [
       "React Three Fiber",
       "Playwright",
     ],
-    links: [
-      {
-        label: "API",
-        url: "https://github.com/LucasCastro100/control-school-back",
-      },
-      {
-        label: "Frontend",
-        url: "https://github.com/LucasCastro100/control-school-front",
-      },
-    ],
+    private: true,
     highlight: true,
     period: "jun/2026 – atual",
+  },
+  {
+    slug: "control-school-back",
+    name: "Control School — API",
+    tagline: "Backend Laravel 13 + Sanctum do painel escolar",
+    description:
+      "API do Control School com autenticação por token, papéis por perfil e endpoints para escolas, turmas, alunos, horários e rotinas de importação de dados.",
+    category: "Full-Stack",
+    stack: ["Laravel 13", "Sanctum", "PHP"],
+    private: true,
+    period: "jun/2026 – atual",
+  },
+  {
+    slug: "control-school",
+    name: "Control School (primeira versão)",
+    tagline: "Versão inicial do sistema multi-escolar",
+    description:
+      "Primeira versão do gerenciador de escolas: cadastro de escolas, turmas, salas, alunos, horários e itens pedagógicos, com persistência local via localStorage.",
+    category: "Frontend",
+    stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4"],
+    links: [
+      {
+        label: "GitHub",
+        url: "https://github.com/LucasCastro100/control-school",
+      },
+    ],
+    period: "2026",
   },
   {
     slug: "odontopro",
@@ -138,7 +160,7 @@ export const projects: Project[] = [
     ],
     links: [{ label: "GitHub", url: "https://github.com/LucasCastro100/odontopro" }],
     highlight: true,
-    period: "set/2026 – atual",
+    period: "em desenvolvimento",
   },
   {
     slug: "neurocomunicacao",
@@ -272,6 +294,7 @@ export const projects: Project[] = [
       "Recharts",
     ],
     links: [{ label: "GitHub", url: "https://github.com/LucasCastro100/base-nextjs" }],
+    study: true,
     period: "ago/2026",
   },
   {
@@ -285,6 +308,7 @@ export const projects: Project[] = [
     links: [
       { label: "GitHub", url: "https://github.com/LucasCastro100/cola-componente" },
     ],
+    study: true,
     period: "set/2026",
   },
   {
@@ -303,6 +327,7 @@ export const projects: Project[] = [
       "Requests",
     ],
     links: [{ label: "GitHub", url: "https://github.com/LucasCastro100/pyton" }],
+    study: true,
     period: "jan/2025 – atual",
   },
   {
@@ -313,6 +338,7 @@ export const projects: Project[] = [
       "Site institucional da RC Studio (rcstudio.com.br). Páginas montadas no Elementor, com cache LiteSpeed, otimização de imagens, snippets e log de atividade.",
     category: "Frontend",
     stack: ["WordPress", "Elementor", "PHP", "MySQL", "LiteSpeed Cache"],
+    site: "https://rcstudio.com.br",
     private: true,
   },
   {
@@ -325,6 +351,129 @@ export const projects: Project[] = [
     stack: ["Markdown"],
     links: [{ label: "GitHub", url: "https://github.com/LucasCastro100/linkedin" }],
     period: "out/2026",
+  },
+  {
+    slug: "prospectar",
+    name: "Prospectar",
+    tagline: "Prospecção local de clientes no Google Maps",
+    description:
+      "Busca negócios por nicho e cidade no Google Maps, separa quem não tem site, quem só tem redes sociais e quem está fora do ar. Pontua as oportunidades, organiza leads num quadro e abre o WhatsApp com uma mensagem pronta. Roda local com Docker, sem chave de API.",
+    category: "Full-Stack",
+    stack: [
+      "Next.js 16",
+      "TypeScript",
+      "Prisma 7",
+      "SQLite",
+      "Docker",
+      "Playwright",
+    ],
+    links: [{ label: "GitHub", url: "https://github.com/LucasCastro100/prospectar" }],
+    period: "nov/2026",
+  },
+  {
+    slug: "icm",
+    name: "ICM — Painel e Automações",
+    tagline: "Gestão de membros, presença e mensagens",
+    description:
+      "Painel para gestão de membros, presença, aniversariantes e envio diário de mensagens pelo WhatsApp via Evolution API. A API em FastAPI/SQLModel alimenta o frontend Next.js e cuida das rotinas agendadas.",
+    category: "Automação",
+    stack: [
+      "FastAPI",
+      "SQLModel",
+      "PostgreSQL",
+      "Next.js 15",
+      "Tailwind CSS",
+      "Evolution API",
+    ],
+    private: true,
+    period: "nov/2026",
+  },
+  {
+    slug: "hospital-blog",
+    name: "Hospital Blog",
+    tagline: "Portal hospitalar com editor de blocos",
+    description:
+      "Portal de conteúdo para hospital com carrossel de exibição, editor de blocos arrastáveis, painel administrativo e autenticação em três níveis. Backend em NestJS/Prisma e frontend em Next.js.",
+    category: "Full-Stack",
+    stack: [
+      "NestJS 11",
+      "Prisma 6",
+      "PostgreSQL",
+      "Next.js 16",
+      "React 19",
+      "Tailwind CSS 4",
+      "dnd-kit",
+    ],
+    links: [{ label: "GitHub", url: "https://github.com/LucasCastro100/hospital-blog" }],
+    period: "nov/2026",
+  },
+  {
+    slug: "b7cicd-example",
+    name: "CI/CD Example",
+    tagline: "API REST usada como base do curso de CI/CD",
+    description:
+      "Projeto de estudo com Express + TypeScript usado para praticar pipeline de CI/CD: build, testes, versionamento por tags e publicação automatizada.",
+    category: "DevOps",
+    stack: ["Express", "TypeScript", "pnpm", "GitHub Actions", "CI/CD"],
+    links: [
+      { label: "GitHub", url: "https://github.com/LucasCastro100/b7cicd-example" },
+    ],
+    study: true,
+    period: "out/2026",
+  },
+  {
+    slug: "portfolio-lucas",
+    name: "Portfólio",
+    tagline: "Este site — projetos, stacks e animações",
+    description:
+      "Portfólio pessoal que lista projetos, stacks e experiência, com animações de entrada e cards com efeito 3D que reagem ao cursor, além de páginas de detalhe preparadas para mostrar o site de cada projeto.",
+    category: "Frontend",
+    stack: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS 4",
+      "Framer Motion",
+    ],
+    links: [
+      { label: "GitHub", url: "https://github.com/LucasCastro100/portfolio-lucas" },
+    ],
+    period: "2026",
+  },
+  {
+    slug: "perfil-github",
+    name: "Perfil GitHub",
+    tagline: "README do perfil com biografia e links",
+    description:
+      "README do perfil do GitHub com biografia, stacks, destaques e links para LinkedIn, site e repositórios — a vitrine que apresenta o trabalho antes do portfólio.",
+    category: "Conteúdo",
+    stack: ["Markdown", "GitHub"],
+    links: [
+      { label: "GitHub", url: "https://github.com/LucasCastro100/LucasCastro100" },
+    ],
+  },
+  {
+    slug: "all-agend",
+    name: "All Agend",
+    tagline: "Projeto de agendamento",
+    description:
+      "Aplicação de agendamento desenvolvida como projeto de estudo, com foco em fluxos de reserva e interface web.",
+    category: "Frontend",
+    stack: ["TypeScript", "React", "Next.js"],
+    links: [{ label: "GitHub", url: "https://github.com/LucasCastro100/all-agend" }],
+    period: "2026",
+  },
+  {
+    slug: "estudos-javascript",
+    name: "Estudos JavaScript",
+    tagline: "Anotações e exemplos de bibliotecas frontend",
+    description:
+      "Repositório de estudos com Swiper para sliders, Zod para validação de formulários, ECharts para gráficos e Jest + Testing Library para testes automatizados.",
+    category: "Frontend",
+    stack: ["JavaScript", "Swiper", "Zod", "ECharts", "Jest", "Testing Library"],
+    links: [{ label: "GitHub", url: "https://github.com/LucasCastro100/java_script" }],
+    study: true,
+    period: "2026",
   },
 ];
 

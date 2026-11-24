@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import {
   projectCategories,
   projects,
@@ -8,7 +9,7 @@ import {
   type ProjectCategory,
 } from "@/data/projects";
 import { Section, SectionHeading } from "./section";
-import { ChevronIcon, ExternalIcon, GithubIcon, LockIcon } from "./icons";
+import { ArrowIcon, ChevronIcon, ExternalIcon, GithubIcon, LockIcon } from "./icons";
 import { SpotlightCard } from "./ui/spotlight-card";
 import { Reveal, StaggerItem } from "./ui/reveal";
 
@@ -19,25 +20,28 @@ const filters: Filter[] = ["Todos", ...projectCategories];
 export function Projects() {
   const [active, setActive] = useState<Filter>("Todos");
 
+  const listed = useMemo(() => projects.filter((project) => !project.study), []);
+  const studies = useMemo(() => projects.filter((project) => project.study), []);
+
   const visible = useMemo(
-    () => (active === "Todos" ? projects : projects.filter((p) => p.category === active)),
-    [active],
+    () => (active === "Todos" ? listed : listed.filter((p) => p.category === active)),
+    [active, listed],
   );
 
   const counts = useMemo(() => {
-    const map = new Map<Filter, number>([["Todos", projects.length]]);
+    const map = new Map<Filter, number>([["Todos", listed.length]]);
     for (const category of projectCategories) {
-      map.set(category, projects.filter((p) => p.category === category).length);
+      map.set(category, listed.filter((p) => p.category === category).length);
     }
     return map;
-  }, []);
+  }, [listed]);
 
   return (
     <Section id="projetos">
       <SectionHeading
         eyebrow="Projetos"
         title="Projetos em Destaque"
-        description="Uma seleção das principais soluções desenvolvidas e as tecnologias aplicadas. Alguns repositórios são mantidos privados por acordos de confidencialidade (NDA), questões contratuais/proprietárias ou uso corporativo."
+        description="Projetos da conta GitHub, públicos e privados, com as tecnologias usadas em cada um. Os privados aparecem sem link por confidencialidade ou uso corporativo. Estudos e referências ficam na marcação no final."
       />
 
       <Reveal>
@@ -75,6 +79,35 @@ export function Projects() {
           <ProjectCard key={project.slug} project={project} index={index} />
         ))}
       </div>
+
+      {studies.length ? (
+        <Reveal delay={0.1}>
+          <div className="mt-8 rounded-2xl border border-dashed border-line bg-card/40 px-5 py-4">
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
+                Marcação
+              </span>
+              <span className="text-sm text-muted">Estudos e referências</span>
+              <span className="font-mono text-xs text-muted/60">
+                {studies.length} repos
+              </span>
+            </div>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {studies.map((study) => (
+                <li key={study.slug}>
+                  <Link
+                    href={`/projetos/${study.slug}`}
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-background/50 px-2.5 py-1.5 text-xs text-muted transition-colors hover:border-accent/40 hover:text-foreground"
+                  >
+                    {study.name}
+                    <ArrowIcon className="size-3" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+      ) : null}
     </Section>
   );
 }
@@ -135,10 +168,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     <StaggerItem index={index} className="h-full">
       <SpotlightCard
         beam={Boolean(project.highlight)}
+        tilt
         className={`h-full p-6 ${project.highlight ? "ring-1 ring-accent/20" : ""}`}
       >
-        <article className="flex flex-1 flex-col">
-          <div className="flex items-start justify-between gap-3">
+        <article className="flex flex-1 flex-col [transform-style:preserve-3d]">
+          <div className="flex items-start justify-between gap-3 [transform:translateZ(16px)]">
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-base font-semibold tracking-tight text-foreground">
@@ -181,6 +215,18 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               </span>
             ) : null}
 
+            {project.site ? (
+              <a
+                href={project.site}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-foreground"
+              >
+                <ExternalIcon className="size-4" />
+                Ver site
+              </a>
+            ) : null}
+
             {project.links?.map((link) => (
               <a
                 key={link.url}
@@ -197,6 +243,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 {link.label}
               </a>
             ))}
+
+            <Link
+              href={`/projetos/${project.slug}`}
+              className="ml-auto inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-foreground"
+            >
+              Detalhes
+              <ArrowIcon className="size-4" />
+            </Link>
           </div>
         </article>
       </SpotlightCard>

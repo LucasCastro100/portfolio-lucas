@@ -11,7 +11,6 @@ import { Magnetic } from "./ui/magnetic";
 import { ProfileCard3D } from "./ui/profile-card-3d";
 import { Reveal } from "./ui/reveal";
 import { BlurFade } from "./ui/blur-fade";
-import { NumberTicker } from "./ui/number-ticker";
 
 export function Hero() {
   return (
@@ -103,19 +102,6 @@ export function Hero() {
                   </IconButton>
                 </div>
               </div>
-            </Reveal>
-
-            <Reveal delay={0.35}>
-              <dl className="mt-12 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3">
-                {profile.stats.map((stat) => (
-                  <div key={stat.label} className="bg-background/60 px-5 py-4 backdrop-blur">
-                    <dt className="text-2xl font-bold tracking-tight text-foreground">
-                      <NumberTicker value={stat.value} />
-                    </dt>
-                    <dd className="mt-1 text-xs leading-tight text-muted">{stat.label}</dd>
-                  </div>
-                ))}
-              </dl>
             </Reveal>
           </div>
 

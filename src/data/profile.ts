@@ -4,7 +4,7 @@ export const profile = {
   role: "Engenheiro de Software",
   headline: "Full Stack & Orientador em Tecnologia",
   tagline:
-    "Há mais de 8 anos transformando problemas de negócio em SaaS, sistemas de gestão, marketplaces e automações que rodam em produção.",
+    "Engenheiro de Software full stack que transforma problemas de negócio em produtos digitais — do banco de dados e das APIs ao frontend, com automações e infraestrutura.",
   location: "Uberaba, MG · Brasil",
   email: "lucascastro121295@gmail.com",
   phone: "+55 (34) 99153-5839",
@@ -16,8 +16,8 @@ export const profile = {
   resume: "/curriculo-lucas-oliveira.pdf",
   githubBio: {
     paragraphs: [
-      "Há mais de 8 anos transformando tecnologia em soluções reais — unindo a engenharia de software de ponta à educação tecnológica e inovação.",
-      "Minha trajetória une o desenvolvimento de software robusto à vivência prática com cultura maker e prototipagem. Com 6 anos de atuação em educação tecnológica (robótica, ecossistemas LEGO, Arduino e fabricação digital), desenvolvi uma forte habilidade de traduzir problemas complexos em arquiteturas simples, escaláveis e usáveis.",
+      "Engenheiro de Software Full Stack com atuação em produtos digitais, automações e tecnologia educacional — do design do banco e das APIs ao frontend e à infraestrutura.",
+      "Minha trajetória une engenharia de software e cultura maker: robótica, ecossistemas LEGO, Arduino e fabricação digital. Essa mistura me ajuda a traduzir problemas complexos em arquiteturas simples, escaláveis e usáveis.",
       "No desenvolvimento de software, atuo de ponta a ponta: do design do banco de dados e APIs ao frontend responsivo, automações de processos e infraestrutura.",
     ],
     stackLabel: "O que construo e utilizo no dia a dia",
@@ -30,11 +30,6 @@ export const profile = {
     closing:
       "Aberto a conexões, novos projetos e trocas sobre engenharia de software, automação e educação tecnológica.",
   },
-  stats: [
-    { value: "8+", label: "anos de experiência" },
-    { value: "~213k", label: "linhas de código" },
-    { value: "20", label: "sistemas em 1 plataforma" },
-  ],
 } as const;
 
 export type Experience = {
